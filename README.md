@@ -38,7 +38,7 @@ git clone https://github.com/DemonicRous/Notification.git
 
 ____
 
-### Настройка уведомлений
+### Настройка уведомлений (notification.js)
 
 - backgroundColor - основнйо цвет уведомления
 - duration - скорость анимации XeY (x - скорость появления, y - скорость исчезновения)
@@ -76,6 +76,32 @@ ____
             x: "right",
             y: "bottom"
         },
+```
+
+### Добавление и активация
+
+Добавляем Notification
+
+```js
+    let notification = new Notification(); 
+```
+
+Активация уведомления: Success (Успех)
+
+```js
+    notification.success('Текст уведомления')
+```
+
+Активация уведомления: Warning (Предупреждение)
+
+```js
+    notification.warn('Текст уведомления')
+```
+
+Активация уведомления: Error (Ошибка)
+
+```js
+    notification.error('Текст уведомления')
 ```
 
 ____
