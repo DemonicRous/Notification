@@ -8,8 +8,6 @@
 - [Возможности](#возможности)
 - [Установка](#установка)
 - [Использование](#использование)
-- [Сотрудничество](#сотрудничество)
-- [Лицензия](#лицензия)
 
 ## Введение
 
@@ -29,7 +27,7 @@
 Чтобы использовать примеры и демонстрации из этого репозитория, просто склонируйте репозиторий на свой локальный компьютер:
 
 
-git clone https://github.com/your-username/notification-html5-css3-js.git
+git clone https://github.com/DemonicRous/Notification.git
 
 
 ## Использование
@@ -37,6 +35,40 @@ git clone https://github.com/your-username/notification-html5-css3-js.git
 Каждый пример или демонстрация содержится в собственной папке и включает все необходимые файлы HTML, CSS и JavaScript. Чтобы использовать определенный пример, откройте соответствующий файл HTML в вашем браузере.
 
 Не стесняйтесь изменять код и экспериментировать с различными стилями или функциональностями. Вы также можете интегрировать эти примеры в свои собственные проекты, копируя соответствующие фрагменты кода.
+
+```js
+    types: [ {
+            type: "success",
+            className: "notification__toast--success",
+            backgroundColor: "#3dc763",
+            icon: {
+                className: "notification__icon--success",
+                tagName: "i"
+            }
+        }, {
+            type: "error",
+            className: "notification__toast--error",
+            backgroundColor: "#ed3d3d",
+            icon: {
+                className: "notification__icon--error",
+                tagName: "i"
+            }
+        }, {
+            type: "warn",
+            className: "notification__toast--warn",
+            backgroundColor: "#eda73e",
+            icon: {
+                className: "notification__icon--warn",
+                tagName: "i"
+            }
+        } ],
+        duration: 2e3,
+        ripple: !0,
+        position: {
+            x: "right",
+            y: "bottom"
+        },
+```
 
 ## Сотрудничество
 
