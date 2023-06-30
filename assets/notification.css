@@ -1,0 +1,340 @@
+@-webkit-keyframes notification-fadeinup {
+    0% {
+        opacity: 0;
+        transform: translateY(25%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes notification-fadeinup {
+    0% {
+        opacity: 0;
+        transform: translateY(25%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@-webkit-keyframes notification-fadeinleft {
+    0% {
+        opacity: 0;
+        transform: translateX(25%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes notification-fadeinleft {
+    0% {
+        opacity: 0;
+        transform: translateX(25%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes notification-fadeoutright {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(25%);
+    }
+}
+@keyframes notification-fadeoutright {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(25%);
+    }
+}
+@-webkit-keyframes notification-fadeoutdown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(25%);
+    }
+}
+@keyframes notification-fadeoutdown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(25%);
+    }
+}
+@-webkit-keyframes ripple {
+    0% {
+        transform: scale(0) translateY(-45%) translateX(13%);
+    }
+    to {
+        transform: scale(1) translateY(-45%) translateX(13%);
+    }
+}
+@keyframes ripple {
+    0% {
+        transform: scale(0) translateY(-45%) translateX(13%);
+    }
+    to {
+        transform: scale(1) translateY(-45%) translateX(13%);
+    }
+}
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.notification__icon--warn,
+.notification__icon--error,
+.notification__icon--success {
+    height: 21px;
+    width: 21px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+.notification__icon--warn:after,
+.notification__icon--warn:before {
+    content: "";
+    background: currentColor;
+    display: block;
+    position: absolute;
+    width: 3px;
+    border-radius: 3px;
+    left: 9px;
+}
+.notification__icon--warn:after {
+    top: 4px;
+    height: 8px;
+    
+}
+.notification__icon--warn:before {
+    height: 3px;
+    bottom: 4px;
+}
+.notification__icon--error:after,
+.notification__icon--error:before {
+    content: "";
+    background: currentColor;
+    display: block;
+    position: absolute;
+    width: 3px;
+    border-radius: 3px;
+    left: 9px;
+    height: 12px;
+    top: 5px;
+}
+.notification__icon--error:after {
+    transform: rotate(-45deg);
+}
+.notification__icon--error:before {
+    transform: rotate(45deg);
+}
+.notification__icon--success:after,
+.notification__icon--success:before {
+    content: "";
+    background: currentColor;
+    display: block;
+    position: absolute;
+    width: 3px;
+    border-radius: 3px;
+}
+.notification__icon--success:after {
+    height: 6px;
+    transform: rotate(-45deg);
+    top: 9px;
+    left: 6px;
+}
+.notification__icon--success:before {
+    height: 11px;
+    transform: rotate(45deg);
+    top: 5px;
+    left: 10px;
+}
+.notification__toast {
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    -webkit-animation: notification-fadeinup 0.3s ease-in forwards;
+    animation: notification-fadeinup 0.3s ease-in forwards;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+    padding: 0 15px;
+    border-radius: 2px;
+    max-width: 700px;
+    transform: translateY(25%);
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+.notification__toast--disappear {
+    transform: translateY(0);
+    -webkit-animation: notification-fadeoutdown 0.3s forwards;
+    animation: notification-fadeoutdown 0.3s forwards;
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+.notification__toast--disappear .notification__icon,
+.notification__toast--disappear .notification__message {
+    -webkit-animation: notification-fadeoutdown 0.3s forwards;
+    animation: notification-fadeoutdown 0.3s forwards;
+    opacity: 1;
+    transform: translateY(0);
+}
+.notification__toast--disappear .notification__dismiss {
+    -webkit-animation: notification-fadeoutright 0.3s forwards;
+    animation: notification-fadeoutright 0.3s forwards;
+    opacity: 1;
+    transform: translateX(0);
+}
+.notification__toast--disappear .notification__message {
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+}
+.notification__toast--upper {
+    margin-bottom: 20px;
+}
+.notification__toast--lower {
+    margin-top: 20px;
+}
+.notification__toast--dismissible .notification__wrapper {
+    padding-right: 30px;
+}
+.notification__ripple {
+    height: 400px;
+    min-width: 700px;
+    position: absolute;
+    transform-origin: bottom right;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    transform: scale(0) translateY(-51%) translateX(13%);
+    z-index: 5;
+    -webkit-animation: ripple 0.4s ease-out forwards;
+    animation: ripple 0.4s ease-out forwards;
+}
+.notification__wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-right: 15px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 10;
+}
+.notification__icon {
+    width: 22px;
+    text-align: center;
+    font-size: 1.3em;
+    opacity: 0;
+    -webkit-animation: notification-fadeinup 0.3s forwards;
+    animation: notification-fadeinup 0.3s forwards;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    margin-right: 13px;
+}
+.notification__dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 26px;
+    margin-right: -15px;
+    -webkit-animation: notification-fadeinleft 0.3s forwards;
+    animation: notification-fadeinleft 0.3s forwards;
+    -webkit-animation-delay: 0.35s;
+    animation-delay: 0.35s;
+    opacity: 0;
+}
+.notification__dismiss-btn {
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    outline: none;
+    opacity: 0.35;
+    height: 100%;
+    width: 100%;
+}
+.notification__dismiss-btn:after,
+.notification__dismiss-btn:before {
+    content: "";
+    background: #fff;
+    height: 12px;
+    width: 2px;
+    border-radius: 3px;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: calc(50% - 5px);
+}
+.notification__dismiss-btn:after {
+    transform: rotate(-45deg);
+}
+.notification__dismiss-btn:before {
+    transform: rotate(45deg);
+}
+.notification__dismiss-btn:hover {
+    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.notification__dismiss-btn:active {
+    opacity: 0.8;
+}
+.notification__message {
+    vertical-align: middle;
+    position: relative;
+    opacity: 0;
+    -webkit-animation: notification-fadeinup 0.3s forwards;
+    animation: notification-fadeinup 0.3s forwards;
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+    line-height: 1.5em;
+}
+@media only screen and (max-width: 480px) {
+    .notification {
+        padding: 0;
+    }
+    .notification__ripple {
+        height: 600px;
+        width: 600px;
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+    }
+    .notification__toast {
+        max-width: none;
+        border-radius: 0;
+        box-shadow: 0 -2px 7px 0 rgba(0, 0, 0, 0.13);
+        width: 100%;
+    }
+    .notification__dismiss {
+        width: 56px;
+    }
+}

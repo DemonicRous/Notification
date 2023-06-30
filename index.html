@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Не обязательные стили -->
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.7/dist/full.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Обязательные стили -->
+	<link rel="stylesheet" href="./assets/notification.css">
+
+	<title>Notification</title>
+</head>
+<body>
+	<div class="m-4">
+		<div class="flex flex-col w-full border-opacity-50">
+
+			<div class="divider">SUCCESS</div>
+			<div class="grid card bg-base-300 rounded-box p-4">
+
+				<div class="form-control">
+				  <div class="input-group">
+				    <input id="success_input" type="text" placeholder="Введите текст уведомления" class="input input-bordered input-success w-full" />
+				    <button id="success_btn" class="btn btn-square">
+				      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+				    </button>
+				  </div>
+				</div>
+
+			</div>
+			<div class="divider">WARNING</div>
+			<div class="grid card bg-base-300 rounded-box p-4">
+				
+				<div class="form-control">
+				  <div class="input-group">
+				    <input id="warning_input" type="text" placeholder="Введите текст уведомления" class="input input-bordered input-warning w-full" />
+				    <button id="warning_btn" class="btn btn-square">
+				      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+				    </button>
+				  </div>
+				</div>
+
+			</div>
+			<div class="divider">ERROR</div>
+			<div class="grid card bg-base-300 rounded-box p-4">
+				
+				<div class="form-control">
+				  <div class="input-group">
+				    <input id="error_input" type="text" placeholder="Введите текст уведомления" class="input input-bordered input-error w-full" />
+				    <button id="error_btn" class="btn btn-square">
+				      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+				    </button>
+				  </div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Обязательный скрипт -->
+	<script src="./assets/notification.js"></script>
+
+	<script>
+
+		let notification = new Notification();
+
+		let success_input = document.getElementById('success_input'),
+			success_btn = document.getElementById('success_btn');
+
+		let warning_input = document.getElementById('warning_input'),
+			warning_btn = document.getElementById('warning_btn');
+
+		let error_input = document.getElementById('error_input'),
+			error_btn = document.getElementById('error_btn');
+
+		success_btn.onclick = function() {
+			if (success_input.value !== '') {
+				notification.success(success_input.value)
+			} else {
+				notification.warn('Текст уведомления не набран!')
+			}
+		}
+
+		warning_btn.onclick = function() {
+			if (warning_input.value !== '') {
+				notification.warn(warning_input.value)
+			} else {
+				notification.warn('Текст уведомления не набран!')
+			}
+		}
+
+		error_btn.onclick = function() {
+			if (error_input.value !== '') {
+				notification.error(error_input.value)
+			} else {
+				notification.warn('Текст уведомления не набран!')
+			}
+		}
+
+	</script>
+
+</body>
+</html>
