@@ -45,37 +45,37 @@ ____
 - position - расположение уведомлений (верхняя, нижняя, левая, правая) 
 
 ```js
-    types: [ {
-            type: "success",
-            className: "notification__toast--success",
-            backgroundColor: "#3dc763",
-            icon: {
-                className: "notification__icon--success",
-                tagName: "i"
-            }
-        }, {
-            type: "error",
-            className: "notification__toast--error",
-            backgroundColor: "#ed3d3d",
-            icon: {
-                className: "notification__icon--error",
-                tagName: "i"
-            }
-        }, {
-            type: "warn",
-            className: "notification__toast--warn",
-            backgroundColor: "#eda73e",
-            icon: {
-                className: "notification__icon--warn",
-                tagName: "i"
-            }
-        } ],
-        duration: 2e3,
-        ripple: !0,
-        position: {
-            x: "right",
-            y: "bottom"
-        },
+types: [ {
+    type: "success",
+    className: "notification__toast--success",
+    backgroundColor: "#3dc763",
+    icon: {
+        className: "notification__icon--success",
+        tagName: "i"
+    }
+}, {
+    type: "error",
+    className: "notification__toast--error",
+    backgroundColor: "#ed3d3d",
+    icon: {
+        className: "notification__icon--error",
+        tagName: "i"
+    }
+}, {
+    type: "warn",
+    className: "notification__toast--warn",
+    backgroundColor: "#eda73e",
+    icon: {
+        className: "notification__icon--warn",
+        tagName: "i"
+    }
+} ],
+duration: 2e3,
+ripple: !0,
+position: {
+    x: "right",
+    y: "bottom"
+},
 ```
 
 ### Добавление и активация
@@ -83,25 +83,25 @@ ____
 Добавляем Notification
 
 ```js
-    let notification = new Notification(); 
+let notification = new Notification(); 
 ```
 
 Активация уведомления: Success (Успех)
 
 ```js
-    notification.success('Текст уведомления')
+notification.success('Текст уведомления')
 ```
 
 Активация уведомления: Warning (Предупреждение)
 
 ```js
-    notification.warn('Текст уведомления')
+notification.warn('Текст уведомления')
 ```
 
 Активация уведомления: Error (Ошибка)
 
 ```js
-    notification.error('Текст уведомления')
+notification.error('Текст уведомления')
 ```
 
 ____
